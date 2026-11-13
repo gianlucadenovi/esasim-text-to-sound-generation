@@ -2,13 +2,13 @@
 
 Prompt-first sound generation: select model and settings, start a new run directly from the View and play every generated WAV.
 
-Enter the prompt and select model, variation count, duration and seed. Press Generate sounds to start inference; normal Blueprint runs remain idle. The progress area displays animated waiting indicator, stage messages and percent from the generator's studio_status telemetry. WAV files appear in independent audio players.
+Prompt-first sound generation. Sound gallery preserves previous runs using view state and saved playback links, displays individual WAV players, synchronized waveform playback cursors, click-to-seek and download buttons. Note: older temporary links can expire; durable archiving needs dataset integration.
 
 An [EsaSim](https://esacode.com/) blueprint block: a view that draws in the browser, in JavaScript (`frontend.js`, `function render(ctx)`).
 
 | | |
 |---|---|
-| Block | `ws-text-to-sound-studio` · version 2 |
+| Block | `ws-text-to-sound-studio` · version 3 |
 | Workspace | Gianluca De Novi's workspace |
 | Author | Gianluca De Novi |
 

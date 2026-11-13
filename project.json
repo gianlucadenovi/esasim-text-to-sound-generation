@@ -12,11 +12,16 @@
         {
             "name": "1 · Generate and review sounds",
             "file": "blueprints/1-generate-and-review-sounds.json",
-            "published_version": 1,
-            "nodes": 4
+            "published_version": 2,
+            "nodes": 5
         }
     ],
     "blocks": [
+        {
+            "id": "ws-text-to-sound-studio",
+            "version": 1,
+            "name": "Text to Sound Studio"
+        },
         {
             "id": "ws-text-to-sound-effects",
             "version": 1,

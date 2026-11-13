@@ -1,0 +1,41 @@
+{
+    "id": "ws-text-to-sound-studio",
+    "version": "1",
+    "name": "Text to Sound Studio",
+    "category": "Visualizers",
+    "icon": "waveform",
+    "side": "frontend",
+    "customizable": true,
+    "summary": "Prompt-first sound generation: select model and settings, start a new run directly from the View and play every generated WAV.",
+    "help": "Use in the Text to Sound Generation project. Wire the sound generator's WAV output to the sounds input. Generate starts a flow run with per-run settings sent to the generator node named generate. Shows independent players for each completed WAV, a download link, and run status. Requires run permission.",
+    "inputs": [
+        {
+            "id": "sounds",
+            "label": "Generated audio",
+            "type": "files",
+            "many": true,
+            "optional": true,
+            "formats": [
+                "wav",
+                "mp3",
+                "ogg",
+                "flac",
+                "m4a",
+                "webm"
+            ]
+        }
+    ],
+    "outputs": [],
+    "params": [],
+    "view": {
+        "w": 6,
+        "h": 7,
+        "resize": "both"
+    },
+    "permissions": [
+        "run"
+    ],
+    "esasim": {
+        "version": 1
+    }
+}

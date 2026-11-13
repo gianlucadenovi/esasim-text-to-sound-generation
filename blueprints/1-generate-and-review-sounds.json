@@ -5,10 +5,18 @@
     },
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
-    "published_version": 1,
-    "updated": "2026-11-13 03:15:33",
+    "published_version": 2,
+    "updated": "2026-11-13 03:41:40",
     "graph": {
         "nodes": [
+            {
+                "id": "studio",
+                "type": "ws-text-to-sound-studio",
+                "x": 570,
+                "y": -220,
+                "params": [],
+                "title": "Sound Studio · Prompt and Generate"
+            },
             {
                 "id": "generate",
                 "type": "ws-text-to-sound-effects",
@@ -93,6 +101,17 @@
                 "to": {
                     "node": "details",
                     "port": "data"
+                }
+            },
+            {
+                "id": "generate.sounds>studio.sounds",
+                "from": {
+                    "node": "generate",
+                    "port": "sounds"
+                },
+                "to": {
+                    "node": "studio",
+                    "port": "sounds"
                 }
             }
         ],

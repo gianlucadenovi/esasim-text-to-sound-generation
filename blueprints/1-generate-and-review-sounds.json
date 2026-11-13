@@ -6,7 +6,7 @@
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
     "published_version": 3,
-    "updated": "2026-11-13 03:49:42",
+    "updated": "2026-11-13 03:52:20",
     "graph": {
         "nodes": [
             {
@@ -122,25 +122,25 @@
                     "x": 0,
                     "y": 0,
                     "w": 6,
-                    "h": 7
+                    "h": 10
                 },
                 "listen": {
                     "x": 6,
                     "y": 0,
                     "w": 6,
-                    "h": 5
+                    "h": 14
                 },
                 "waveforms": {
-                    "x": 0,
-                    "y": 7,
+                    "x": 6,
+                    "y": 14,
                     "w": 6,
                     "h": 7
                 },
                 "details": {
-                    "x": 6,
-                    "y": 5,
+                    "x": 0,
+                    "y": 10,
                     "w": 6,
-                    "h": 7
+                    "h": 11
                 }
             }
         }

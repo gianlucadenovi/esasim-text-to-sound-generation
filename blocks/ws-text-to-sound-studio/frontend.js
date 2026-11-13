@@ -1,5 +1,5 @@
 // ── EsaSim block ──────────────────────────────────────────────────────
-// Text to Sound Studio (ws-text-to-sound-studio) · version 3 · view, JavaScript: function render(ctx)
+// Text to Sound Studio (ws-text-to-sound-studio) · version 4 · view, JavaScript: function render(ctx)
 // Prompt-first sound generation: select model and settings, start a new run directly from the View and play every generated WAV.
 // Workspace: Gianluca De Novi's workspace · Author: Gianluca De Novi
 // Saved: 2026-11-13
@@ -58,6 +58,13 @@ function render(ctx) {
     if (+state.seconds > max) { state.seconds = max; el('seconds').value = String(max); persist(); }
   }
   syncModel();
+  var authHelp=document.createElement('div');
+  authHelp.className='viz-small viz-muted';
+  authHelp.style.cssText='display:none;padding:9px 11px;border:1px solid var(--line,#aab4c5);border-radius:8px';
+  authHelp.textContent='Stable Audio Open is gated: open huggingface.co/stabilityai/stable-audio-open-1.0, accept the model terms, then enter your Hugging Face read token in Blueprint → Generate sound variations → Hugging Face access token. Tokens cannot be entered through this View.';
+  el('generate').parentNode.parentNode.appendChild(authHelp);
+  function showAuthHelp(){authHelp.style.display=state.model==='Stable Audio Open 1.0'?'block':'none';}
+  el('model').addEventListener('change',showAuthHelp);showAuthHelp();
   function updateActivity() {
     var inp = ctx.input('status') || {stream: []};
     var messages = (inp.stream || []).filter(function(it) { return it.channel === 'studio_status' && it.data && typeof it.data === 'object'; });
@@ -66,12 +73,12 @@ function render(ctx) {
     var phase = latest && latest.phase || (active ? 'starting' : 'idle');
     var pct = latest && Number.isFinite(Number(latest.percent)) ? Math.max(0,Math.min(100,+latest.percent)) : 0;
     if (active && !latest) pct = 1;
-    var headings = {idle:'Ready to generate',preparing:'Preparing environment',loading:'Loading the audio model',model_ready:'Model ready',generating:'Generating audio',generated:'Variation completed',done:'Generation complete',starting:'Starting generation'};
+    var headings = {auth_required:'Hugging Face access required',idle:'Ready to generate',preparing:'Preparing environment',loading:'Loading the audio model',model_ready:'Model ready',generating:'Generating audio',generated:'Variation completed',done:'Generation complete',starting:'Starting generation'};
     var failure = !active && ctx.run && ['failed','canceled','lost'].indexOf(ctx.run.status) >= 0;
     var done = !active && ctx.run && ctx.run.status === 'succeeded';
     el('spinner').style.display = active ? 'block' : 'none';
-    el('phase').textContent = failure ? 'Generation stopped' : (headings[phase] || (done ? 'Finished' : 'Ready to generate'));
-    el('message').textContent = failure ? 'Run ' + ctx.run.status + '. Check the run log for the error details.' : latest && latest.message ? latest.message : (active ? 'Waiting for the worker to report its progress…' : 'Enter your prompt and press Generate sounds. No model runs until you click.');
+    el('phase').textContent = phase === 'auth_required' ? 'Hugging Face access required' : failure ? 'Generation stopped' : (headings[phase] || (done ? 'Finished' : 'Ready to generate'));
+    el('message').textContent = phase === 'auth_required' ? (latest.message || 'Accept model terms and configure the Hugging Face token in the generator block secret setting.') : failure ? 'Run ' + ctx.run.status + '. Check the run log for the error details.' : latest && latest.message ? latest.message : (active ? 'Waiting for the worker to report its progress…' : 'Enter your prompt and press Generate sounds. No model runs until you click.');
     el('bar').style.width = pct + '%';
     el('percent').textContent = String(Math.round(pct)) + '%';
     var hist = messages.slice(-7).reverse();

@@ -18,6 +18,8 @@ An audio diffusion model starts with noise and shapes it into a waveform guided 
 
 **One prompt → N seeded variations → individual WAV files → players, waveforms and a results table.**
 
+**The Sound Studio View is the control panel:** enter your prompt, choose the model and settings, and press **Generate sounds** directly in the View. You do not need to edit the Blueprint or press Run separately; the View starts a new run with your chosen settings. A new run can be started when the previous one is no longer active.
+
 The model downloads from Hugging Face to the selected worker's local cache on first use and can be reused on later runs. Inference runs on the selected worker, rather than through a hosted sound-generation API. The model download and resulting artifacts still use the configured network connections and EsaSim result storage.
 
 ## The flow
@@ -28,7 +30,8 @@ The model downloads from Hugging Face to the selected worker's local cache on fi
 
 | Block | What it does |
 |---|---|
-| **Generate sound variations** | Select a model, enter a prompt, choose 1–100 takes and produce a separate seeded WAV for each one. |
+| **Sound Studio · Prompt and Generate** | In the View, write a prompt, pick the model, duration, variations and seed, and press **Generate sounds** to start a new run. It also displays individual audio players and WAV download links. |
+| **Generate sound variations** | Runs the selected model with the settings supplied by the Sound Studio and produces separate seeded WAV takes. |
 | **Listen to every variation** | Displays an individual browser audio player for every generated file, each with playback and seeking controls. |
 | **Inspect audio waveforms** | Explore the sound signals visually, with zoom, scroll and playback. |
 | **Generation details** | Compare variation number, seed, model, duration, sample rate, machine and time spent generating each take. |
@@ -69,16 +72,14 @@ No external sound-generation API is needed for local model inference. Be sure to
 
 ## How to run it
 
-1. Open **Compute** and confirm an eligible worker is available.
-2. Open [**1 · Generate and review sounds**](https://esacode.com/app/projects/17/flows/57) under **Blueprint**.
-3. Select a **Hugging Face audio model**, write your **Sound description**, and enter the **Number of variations**.
-4. Optionally adjust clip length, negative prompt, seed, inference steps and guidance. For a gated model, enter your token in the secret setting.
-5. Press **Run**. Watch the progress and log while the model loads and the sound variations are generated.
-6. Open **View** to listen to the completed WAVs independently, explore waveforms and compare the result rows. The generated files and metadata are also retained under **Results**.
+1. Under **Compute**, make sure an eligible machine is available for the project. The first generation may download the model from Hugging Face.
+2. Open [**1 · Generate and review sounds**](https://esacode.com/app/projects/17/flows/57) and switch to **View**. Find the **Sound Studio** panel.
+3. Type a prompt describing your sound. Select the model, number of variations, duration and seed; use **Advanced generation settings** if needed.
+4. Click **Generate sounds** (or press **Ctrl+Enter** in the prompt). The View starts a new flow run using these settings for that run only; **no Blueprint edits or separate Run click are required**.
+5. Watch its run status. When the outputs are available, listen to each take using its independent audio player and download the WAV. The waveform and details panels remain available for further comparison.
+6. To try a different sound, edit the prompt and generate again once the current run finishes.
 
-**Prompt to try**
-
-> A massive steel hangar door begins to slide open with a deep mechanical rumble, heavy gears turning and metal vibrating, then stops with a short metallic clang. Realistic cinematic sound design, no speech and no music.
+**Note:** A run must not already be active when you press Generate. The View's Generate button needs project runner permission. Authenticated/gated models may require a Hugging Face token set in the generator block's secret field; secrets cannot be passed as per-run View settings.
 
 ## Settings worth knowing
 
@@ -131,6 +132,6 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 ### Workspace blocks it uses
 
 - [Text to Sound Studio](blocks/ws-text-to-sound-studio) · version 1
-- [Text to sound effects](blocks/ws-text-to-sound-effects) · version 1
+- [Text to sound effects](blocks/ws-text-to-sound-effects) · version 2
 
 Keys pasted in blocks (secret settings) are not saved here. Datasets, results and the team stay in EsaSim.

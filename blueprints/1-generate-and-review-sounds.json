@@ -5,8 +5,8 @@
     },
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
-    "published_version": 5,
-    "updated": "2026-11-13 03:56:04",
+    "published_version": 6,
+    "updated": "2026-11-13 04:11:27",
     "graph": {
         "nodes": [
             {
@@ -23,7 +23,7 @@
                 "x": 0,
                 "y": 110,
                 "params": {
-                    "model": "AudioLDM 2",
+                    "model": "AudioLDM",
                     "model_id": "",
                     "custom_family": "AudioLDM 2",
                     "prompt": "A sudden powerful thunderclap directly overhead, followed by a long low rolling rumble that slowly fades into a quiet rainstorm. Photorealistic field recording, no music, no voices.",

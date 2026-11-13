@@ -20,6 +20,8 @@ An audio diffusion model starts with noise and shapes it into a waveform guided 
 
 **The Sound Studio View is the control panel:** enter your prompt, choose the model and settings, and press **Generate sounds** directly in the View. You do not need to edit the Blueprint or press Run separately; the View starts a new run with your chosen settings. A new run can be started when the previous one is no longer active.
 
+**Run behavior:** A normal Blueprint **Run** does **not** start audio inference. Only clicking **Generate sounds** in Sound Studio starts a generation run. While the worker loads the model and generates each variation, the View displays an animated waiting indicator, current stage, percentage and recent progress messages. A queued run shows a waiting state until a worker starts.
+
 The model downloads from Hugging Face to the selected worker's local cache on first use and can be reused on later runs. Inference runs on the selected worker, rather than through a hosted sound-generation API. The model download and resulting artifacts still use the configured network connections and EsaSim result storage.
 
 ## The flow
@@ -132,6 +134,6 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 ### Workspace blocks it uses
 
 - [Text to Sound Studio](blocks/ws-text-to-sound-studio) · version 2
-- [Text to sound effects](blocks/ws-text-to-sound-effects) · version 3
+- [Text to sound effects](blocks/ws-text-to-sound-effects) · version 4
 
 Keys pasted in blocks (secret settings) are not saved here. Datasets, results and the team stay in EsaSim.

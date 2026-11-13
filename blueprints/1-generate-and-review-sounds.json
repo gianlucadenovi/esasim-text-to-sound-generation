@@ -1,0 +1,104 @@
+{
+    "esasim": {
+        "kind": "blueprint",
+        "flow_id": 57
+    },
+    "name": "1 · Generate and review sounds",
+    "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
+    "published_version": 1,
+    "updated": "2026-11-13 03:15:33",
+    "graph": {
+        "nodes": [
+            {
+                "id": "generate",
+                "type": "ws-text-to-sound-effects",
+                "x": 0,
+                "y": 140,
+                "params": {
+                    "model": "AudioLDM 2",
+                    "model_id": "",
+                    "custom_family": "AudioLDM 2",
+                    "prompt": "A sudden powerful thunderclap directly overhead, followed by a long low rolling rumble that slowly fades into a quiet rainstorm. Photorealistic field recording, no music, no voices.",
+                    "count": 4,
+                    "seconds": 8,
+                    "seed": 1,
+                    "steps": 0,
+                    "guidance": 0,
+                    "negative": "speech, music",
+                    "token": ""
+                },
+                "title": "1 · Generate sound variations"
+            },
+            {
+                "id": "listen",
+                "type": "sound-view",
+                "x": 570,
+                "y": 0,
+                "params": {
+                    "autoplay": false,
+                    "volume": 80
+                },
+                "title": "2 · Listen to every variation"
+            },
+            {
+                "id": "waveforms",
+                "type": "waveform-view",
+                "x": 570,
+                "y": 220,
+                "params": {
+                    "lanes": "one lane each"
+                },
+                "title": "3 · Inspect audio waveforms"
+            },
+            {
+                "id": "details",
+                "type": "table-view",
+                "x": 570,
+                "y": 440,
+                "params": {
+                    "rows": 100
+                },
+                "title": "4 · Seeds, durations and generation times"
+            }
+        ],
+        "edges": [
+            {
+                "id": "generate.sounds>listen.data",
+                "from": {
+                    "node": "generate",
+                    "port": "sounds"
+                },
+                "to": {
+                    "node": "listen",
+                    "port": "data"
+                }
+            },
+            {
+                "id": "generate.sounds>waveforms.data",
+                "from": {
+                    "node": "generate",
+                    "port": "sounds"
+                },
+                "to": {
+                    "node": "waveforms",
+                    "port": "data"
+                }
+            },
+            {
+                "id": "generate.table>details.data",
+                "from": {
+                    "node": "generate",
+                    "port": "table"
+                },
+                "to": {
+                    "node": "details",
+                    "port": "data"
+                }
+            }
+        ],
+        "notes": [],
+        "dash": {
+            "items": []
+        }
+    }
+}

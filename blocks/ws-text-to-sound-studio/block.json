@@ -7,7 +7,7 @@
     "side": "frontend",
     "customizable": true,
     "summary": "Prompt-first sound generation: select model and settings, start a new run directly from the View and play every generated WAV.",
-    "help": "Use in the Text to Sound Generation project. Wire the sound generator's WAV output to the sounds input. Generate starts a flow run with per-run settings sent to the generator node named generate. Shows independent players for each completed WAV, a download link, and run status. Requires run permission.",
+    "help": "Enter the prompt and select model, variation count, duration and seed. Press Generate sounds to start inference; normal Blueprint runs remain idle. The progress area displays animated waiting indicator, stage messages and percent from the generator's studio_status telemetry. WAV files appear in independent audio players.",
     "inputs": [
         {
             "id": "sounds",
@@ -23,6 +23,13 @@
                 "m4a",
                 "webm"
             ]
+        },
+        {
+            "id": "status",
+            "label": "Live generation progress",
+            "type": "telemetry",
+            "optional": true,
+            "help": "Connect the generator telemetry to display stages and progress while it works."
         }
     ],
     "outputs": [],
@@ -36,6 +43,6 @@
         "run"
     ],
     "esasim": {
-        "version": 1
+        "version": 2
     }
 }

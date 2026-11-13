@@ -12,7 +12,7 @@
         {
             "name": "1 · Generate and review sounds",
             "file": "blueprints/1-generate-and-review-sounds.json",
-            "published_version": 2,
+            "published_version": 3,
             "nodes": 5
         }
     ],

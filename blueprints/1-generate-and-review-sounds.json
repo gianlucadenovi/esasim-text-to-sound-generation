@@ -5,23 +5,23 @@
     },
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
-    "published_version": 2,
-    "updated": "2026-11-13 03:46:39",
+    "published_version": 3,
+    "updated": "2026-11-13 03:49:42",
     "graph": {
         "nodes": [
             {
                 "id": "studio",
                 "type": "ws-text-to-sound-studio",
-                "x": 570,
-                "y": -220,
+                "x": 520,
+                "y": 0,
                 "params": [],
-                "title": "Sound Studio · Prompt and Generate"
+                "title": "START HERE · Prompt, settings & Generate sounds"
             },
             {
                 "id": "generate",
                 "type": "ws-text-to-sound-effects",
                 "x": 0,
-                "y": 140,
+                "y": 110,
                 "params": {
                     "model": "AudioLDM 2",
                     "model_id": "",
@@ -41,7 +41,7 @@
                 "id": "listen",
                 "type": "sound-view",
                 "x": 570,
-                "y": 0,
+                "y": 270,
                 "params": {
                     "autoplay": false,
                     "volume": 80
@@ -52,7 +52,7 @@
                 "id": "waveforms",
                 "type": "waveform-view",
                 "x": 570,
-                "y": 220,
+                "y": 490,
                 "params": {
                     "lanes": "one lane each"
                 },
@@ -62,7 +62,7 @@
                 "id": "details",
                 "type": "table-view",
                 "x": 570,
-                "y": 440,
+                "y": 720,
                 "params": {
                     "rows": 100
                 },

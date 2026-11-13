@@ -5,8 +5,8 @@
     },
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
-    "published_version": 3,
-    "updated": "2026-11-13 03:52:20",
+    "published_version": 4,
+    "updated": "2026-11-13 03:56:04",
     "graph": {
         "nodes": [
             {
@@ -33,7 +33,8 @@
                     "steps": 0,
                     "guidance": 0,
                     "negative": "speech, music",
-                    "token": ""
+                    "token": "",
+                    "start_from_view": false
                 },
                 "title": "1 · Generate sound variations"
             },
@@ -112,6 +113,17 @@
                 "to": {
                     "node": "studio",
                     "port": "sounds"
+                }
+            },
+            {
+                "id": "generate.telemetry>studio.status",
+                "from": {
+                    "node": "generate",
+                    "port": "telemetry"
+                },
+                "to": {
+                    "node": "studio",
+                    "port": "status"
                 }
             }
         ],

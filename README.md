@@ -129,7 +129,7 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 
 ### Blueprints in this repository
 
-- [1 · Generate and review sounds](blueprints/1-generate-and-review-sounds.json) · 5 blocks · version 4
+- [1 · Generate and review sounds](blueprints/1-generate-and-review-sounds.json) · 5 blocks · version 5
 
 ### Workspace blocks it uses
 

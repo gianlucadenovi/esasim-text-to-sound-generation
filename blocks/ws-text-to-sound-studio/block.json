@@ -3,27 +3,12 @@
     "version": "1",
     "name": "Text to Sound Studio",
     "category": "Visualizers",
-    "icon": "waveform",
+    "icon": "chart",
     "side": "frontend",
     "customizable": true,
-    "summary": "Prompt-first sound generation: select model and settings, start a new run directly from the View and play every generated WAV.",
-    "help": "Prompt-first sound generation. Sound gallery preserves previous runs using view state and saved playback links, displays individual WAV players, synchronized waveform playback cursors, click-to-seek and download buttons. Note: older temporary links can expire; durable archiving needs dataset integration.",
+    "summary": "Prompt-first sound generation: select model and settings and start a new run directly from the View, with live progress.",
+    "help": "Prompt, model and settings, a Generate sounds button that starts a run with those settings, and the live progress of the generator (connect its telemetry to Live generation progress). The generated takes are shown in a separate player panel.",
     "inputs": [
-        {
-            "id": "sounds",
-            "label": "Generated audio",
-            "type": "files",
-            "many": true,
-            "optional": true,
-            "formats": [
-                "wav",
-                "mp3",
-                "ogg",
-                "flac",
-                "m4a",
-                "webm"
-            ]
-        },
         {
             "id": "status",
             "label": "Live generation progress",
@@ -43,6 +28,6 @@
         "run"
     ],
     "esasim": {
-        "version": 4
+        "version": 5
     }
 }

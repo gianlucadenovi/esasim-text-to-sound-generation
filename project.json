@@ -19,7 +19,7 @@
     "blocks": [
         {
             "id": "ws-text-to-sound-studio",
-            "version": 4,
+            "version": 5,
             "name": "Text to Sound Studio"
         },
         {

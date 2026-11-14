@@ -135,6 +135,6 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 
 - [Text to Sound Studio](blocks/ws-text-to-sound-studio) · version 5
 - [Text to sound effects](blocks/ws-text-to-sound-effects) · version 11
-- [Sound takes with downloads](blocks/ws-sound-takes-with-downloads) · version 1
+- [Sound takes with downloads](blocks/ws-sound-takes-with-downloads) · version 2
 
 Keys pasted in blocks (secret settings) are not saved here. Datasets, results and the team stay in EsaSim.

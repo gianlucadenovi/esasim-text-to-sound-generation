@@ -1,5 +1,5 @@
 // ── EsaSim block ──────────────────────────────────────────────────────
-// Sound takes with downloads (ws-sound-takes-with-downloads) · version 1 · view, JavaScript: function render(ctx)
+// Sound takes with downloads (ws-sound-takes-with-downloads) · version 2 · view, JavaScript: function render(ctx)
 // Plays every generated take, each with its own Download WAV and Download MP3 buttons.
 // Workspace: Gianluca De Novi's workspace · Author: Gianluca De Novi
 // Saved: 2026-11-14
@@ -33,20 +33,20 @@ function render(ctx) {
     return (x.files || []).filter(function (f) { return /\.(wav|mp3|ogg|flac|m4a|webm)$/i.test(f.name || ''); });
   }
   function download(file, name, mime, btn) {
+    // Views run in a sandboxed frame where a plain <a download> is blocked: hand the file to the page
+    // with ctx.save, which offers it as a download (as the built-in Camera view does).
     var label = btn.textContent;
     btn.disabled = true; btn.textContent = 'Preparing…';
     ctx.files.buffer(file).then(function (buf) {
-      var url = URL.createObjectURL(new Blob([buf], { type: mime }));
+      var blob = new Blob([buf], { type: mime });
+      if (typeof ctx.save === 'function') return ctx.save(name, blob);
+      var url = URL.createObjectURL(blob);
       var a = document.createElement('a'); a.href = url; a.download = name;
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(function () { URL.revokeObjectURL(url); }, 20000);
-    }).catch(function () {
-      return ctx.files.url(file).then(function (u) {
-        var a = document.createElement('a'); a.href = u; a.download = name; a.target = '_blank'; a.rel = 'noopener';
-        document.body.appendChild(a); a.click(); a.remove();
-      });
-    }).catch(function () { btn.title = 'The file could not be fetched'; })
-      .finally(function () { btn.disabled = false; btn.textContent = label; });
+    }).then(function () { btn.textContent = '✓ ' + label.replace(/^↓ /, ''); setTimeout(function () { btn.textContent = label; }, 1500); },
+      function (e) { btn.textContent = label; ctx.status('Download failed: ' + (e && e.message ? e.message : 'the file could not be fetched')); })
+      .then(function () { btn.disabled = false; });
   }
   function button(text, primary) {
     var b = document.createElement('button'); b.type = 'button';

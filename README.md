@@ -129,11 +129,11 @@ An [EsaSim](https://esacode.com/) project of the workspace Gianluca De Novi's wo
 
 ### Blueprints in this repository
 
-- [1 · Generate and review sounds](blueprints/1-generate-and-review-sounds.json) · 5 blocks · version 11
+- [1 · Generate and review sounds](blueprints/1-generate-and-review-sounds.json) · 5 blocks · version 12
 
 ### Workspace blocks it uses
 
 - [Text to Sound Studio](blocks/ws-text-to-sound-studio) · version 4
-- [Text to sound effects](blocks/ws-text-to-sound-effects) · version 9
+- [Text to sound effects](blocks/ws-text-to-sound-effects) · version 10
 
 Keys pasted in blocks (secret settings) are not saved here. Datasets, results and the team stay in EsaSim.

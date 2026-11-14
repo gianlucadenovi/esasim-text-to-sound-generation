@@ -5,8 +5,8 @@
     },
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
-    "published_version": 9,
-    "updated": "2026-11-14 04:22:30",
+    "published_version": 10,
+    "updated": "2026-11-14 04:43:14",
     "graph": {
         "nodes": [
             {
@@ -23,12 +23,12 @@
                 "x": 0,
                 "y": 110,
                 "params": {
-                    "model": "AudioLDM",
+                    "model": "AudioLDM 2",
                     "model_id": "",
                     "custom_family": "AudioLDM 2",
-                    "prompt": "A crowd of people clapping their hands, applause in a small hall",
-                    "count": 1,
-                    "seconds": 5,
+                    "prompt": "A sudden powerful thunderclap directly overhead, followed by a long low rolling rumble that slowly fades into a quiet rainstorm. Photorealistic field recording, no music, no voices.",
+                    "count": 2,
+                    "seconds": 8,
                     "seed": 1,
                     "steps": 0,
                     "guidance": 0,

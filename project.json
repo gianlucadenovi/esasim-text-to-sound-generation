@@ -12,7 +12,7 @@
         {
             "name": "1 · Generate and review sounds",
             "file": "blueprints/1-generate-and-review-sounds.json",
-            "published_version": 13,
+            "published_version": 14,
             "nodes": 5
         }
     ],
@@ -26,6 +26,11 @@
             "id": "ws-text-to-sound-effects",
             "version": 11,
             "name": "Text to sound effects"
+        },
+        {
+            "id": "ws-sound-takes-with-downloads",
+            "version": 1,
+            "name": "Sound takes with downloads"
         }
     ]
 }

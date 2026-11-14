@@ -5,8 +5,8 @@
     },
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
-    "published_version": 13,
-    "updated": "2026-11-14 15:16:06",
+    "published_version": 14,
+    "updated": "2026-11-14 15:16:46",
     "graph": {
         "nodes": [
             {
@@ -41,14 +41,14 @@
             },
             {
                 "id": "listen",
-                "type": "sound-view",
+                "type": "ws-sound-takes-with-downloads",
                 "x": 570,
                 "y": 270,
                 "params": {
                     "autoplay": false,
                     "volume": 80
                 },
-                "title": "2 · Listen to every variation"
+                "title": "2 · Listen to and download every variation"
             },
             {
                 "id": "waveforms",
@@ -73,14 +73,25 @@
         ],
         "edges": [
             {
-                "id": "generate.sounds>listen.data",
+                "id": "generate.sounds>listen.sounds",
                 "from": {
                     "node": "generate",
                     "port": "sounds"
                 },
                 "to": {
                     "node": "listen",
-                    "port": "data"
+                    "port": "sounds"
+                }
+            },
+            {
+                "id": "generate.mp3>listen.mp3",
+                "from": {
+                    "node": "generate",
+                    "port": "mp3"
+                },
+                "to": {
+                    "node": "listen",
+                    "port": "mp3"
                 }
             },
             {
@@ -103,17 +114,6 @@
                 "to": {
                     "node": "details",
                     "port": "data"
-                }
-            },
-            {
-                "id": "generate.sounds>studio.sounds",
-                "from": {
-                    "node": "generate",
-                    "port": "sounds"
-                },
-                "to": {
-                    "node": "studio",
-                    "port": "sounds"
                 }
             },
             {

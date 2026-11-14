@@ -24,7 +24,7 @@
         },
         {
             "id": "ws-text-to-sound-effects",
-            "version": 5,
+            "version": 6,
             "name": "Text to sound effects"
         }
     ]

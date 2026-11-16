@@ -1,3 +1,7 @@
+<!-- esasim: cover -->
+![Text to Sound Generation](assets/cover.jpg)
+<!-- /esasim: cover -->
+
 <div align="center">
 
 # Text to Sound Generation

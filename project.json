@@ -7,6 +7,8 @@
     "name": "Text to Sound Generation",
     "description": "Generate multiple variations of a text-described sound with selectable Hugging Face audio diffusion models, then listen to and compare each result with independent playback widgets.",
     "type": "generative-audio",
+    "cover": "upload",
+    "cover_file": "assets/cover.jpg",
     "readme": "README.md",
     "blueprints": [
         {

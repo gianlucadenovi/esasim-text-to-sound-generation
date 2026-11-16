@@ -6,14 +6,14 @@
     "name": "1 · Generate and review sounds",
     "description": "Generate N WAV sound variations from one prompt and model; listen independently, inspect waveforms and compare generation metadata.",
     "published_version": 15,
-    "updated": "2026-11-14 15:16:46",
+    "updated": "2026-11-16 01:55:32",
     "graph": {
         "nodes": [
             {
                 "id": "studio",
                 "type": "ws-text-to-sound-studio",
-                "x": 520,
-                "y": 0,
+                "x": 540,
+                "y": 520,
                 "params": [],
                 "title": "START HERE · Prompt, settings & Generate sounds"
             },
@@ -42,8 +42,8 @@
             {
                 "id": "listen",
                 "type": "ws-sound-takes-with-downloads",
-                "x": 570,
-                "y": 270,
+                "x": 540,
+                "y": 100,
                 "params": {
                     "autoplay": false,
                     "volume": 80
@@ -53,8 +53,8 @@
             {
                 "id": "waveforms",
                 "type": "waveform-view",
-                "x": 570,
-                "y": 490,
+                "x": 540,
+                "y": -100,
                 "params": {
                     "lanes": "one lane each"
                 },
@@ -63,8 +63,8 @@
             {
                 "id": "details",
                 "type": "table-view",
-                "x": 570,
-                "y": 720,
+                "x": 540,
+                "y": 340,
                 "params": {
                     "rows": 100
                 },
